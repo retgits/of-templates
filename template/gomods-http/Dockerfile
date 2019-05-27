@@ -14,9 +14,6 @@ RUN mv function/go.* . && \
     export mod="${line:7}" && \
     sed -i -e "s#handler/function#$mod/function#g" main.go
 
-# Run a gofmt and exclude all vendored code.
-RUN test -z "$(gofmt -l $(find . -type f -name '*.go' -not -path "./vendor/*" -not -path "./function/vendor/*"))" || { echo "Run \"gofmt -s -w\" on your Golang code"; exit 1; }
-
 RUN CGO_ENABLED=0 GOOS=linux go build --ldflags "-s -w" -a -installsuffix cgo -o handler .
 
 FROM alpine:3.9
