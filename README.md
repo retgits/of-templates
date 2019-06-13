@@ -8,23 +8,28 @@ $ faas-cli new --list
 
 Languages available as templates:
 - gomods-http
+- go-arti-http
 ```
 
 ## gomods-http
 
 The template _gomods-http_ is equivalent to [`golang-http`](https://github.com/openfaas-incubator/golang-http-template/tree/master/template/golang-http) with the exception being this template uses [Go modules](https://github.com/golang/go/wiki/Modules) and the Go [1.12.5](https://golang.org/doc/go1.12)
 
-### Status of the template
+## go-arti-http
+
+The template _go-arti-http_ is equivalent to `gomods-http` with the exception being this template uses [JFrog Artifactory](https://jfrog.com/artifactory) to resolve Go modules. If you need an Artifactory instance yo try it out, you can use [JFrog's testdrive](https://try.jfrog.com) and get a four-day triel of both Artifactory and Xray.
+
+## Status of the templates
 
 The template is customized to suit my needs, though if you have any thoughts or suggestions, I'd love to hear them.
 
 Just like the `golang-http` template, this template makes use of the OpenFaaS incubator project [of-watchdog](https://github.com/openfaas-incubator/of-watchdog).
 
-### Trying the template
+### Trying the templates
 
 ```
 $ faas-cli template pull https://github.com/retgits/of-templatesgolang-http-template
-$ faas-cli new --lang gomods-http <fn-name>
+$ faas-cli new --lang <template> <fn-name>
 ```
 
 The above commands will create a folder with the name of your function and a set of files:

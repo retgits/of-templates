@@ -1,0 +1,2 @@
+language: go-arti-http
+fprocess: ./handler
