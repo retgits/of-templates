@@ -43,6 +43,15 @@ The above commands will create a folder with the name of your function and a set
 
 You can change the name of your package by updating the name in the `go.mod` file. The build template will automatically pick up the correct name when building an OpenFaaS function. It is important that you keep the `package function` declaration at the top of `handler.go`.
 
+When using the `go-arti-http` template, you'll need to set a few `build-args` for it to work. 
+
+```
+# The command
+faas-cli build -f stacks.yml -b APP_VERSION=<version of your app> -b APP_NAME=<name of your app> -b ARTIFACTORY_URL=<artifactory host> -b ARTIFACTORY_USER=<artifactory user> -b ARTIFACTORY_PASSWD=<artifactory password>
+```
+
+The build automatically creates a `buildInfo` in Artifactory and publishes the dependencies in case they do not yet exist.
+
 ### Example usage
 
 The below samples are from the [OpenFaaS](https://github.com/openfaas-incubator/golang-http-template) repository.
