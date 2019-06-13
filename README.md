@@ -28,7 +28,7 @@ Just like the `golang-http` template, this template makes use of the OpenFaaS in
 ### Trying the templates
 
 ```
-$ faas-cli template pull https://github.com/retgits/of-templatesgolang-http-template
+$ faas-cli template pull https://github.com/retgits/of-templates
 $ faas-cli new --lang <template> <fn-name>
 ```
 
